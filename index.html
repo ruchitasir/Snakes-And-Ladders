@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sankes And Ladders</title>
+      <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <h1>Snakes And Ladders</h1>
+
+    <div class= "container">
+       <div class="itemGif1"> 
+           <img id ="imgDice" src="images/dice.gif" alt="dice rotating"> 
+       </div>
+       <div class = "item2up"></div>
+       <span class="item3up" id="currentPlayerUp">You rolled: six </span> 
+       <div class ="item4up"> 
+            <table>
+                <thead>
+                    <tr>
+                        <th>Players</th>
+                        <th>Previous Position</th>
+                        <th>Next Position</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <tr> 
+                        <th>Player1:</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr><th>Player2:</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </tbody>
+            </table>
+        </div> 
+    </div>
+
+    <div class= "container">
+       <canvas id="canvas" ></canvas>
+       <div class="itemDice">
+           <button id="dice">Roll Dice</button> 
+       </div>
+    </div>
+
+    <div class= "container"> 
+       <div class="itemGif2"> 
+           <img id ="imgDice" src="images/dice.gif" alt="dice rotating"> 
+       </div>
+       <div class = "item2down"></div>
+       <span class="item3down" id="currentPlayerDown">  </span>
+       <p class="item3down" id="currentPlayerDownP1"> hello</p>
+        <div class="item3down" id="currentPlayerDownP2">hi</div>  
+       <div class ="item4down"> 
+        <table>
+            <thead>
+                <tr>
+                    <th>Players</th>
+                    <th>Previous Position</th>
+                    <th>Next Position</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <tr> 
+                    <th>Player1:</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr><th>Player2:</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </tbody>
+        </table>
+       </div>         
+    </div>  
+
+</body>
+<script  src="./js/main.js"></script>
+<script  src="./js/helper.js"></script>
+</html>
+

@@ -1,0 +1,116 @@
+ 
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  table{
+    width: 100%;
+  }
+ 
+#dice{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 5px;
+  background-color: #cae8ca;
+  border: 2px solid #4CAF50;
+  width: 60%;
+  font-size: 1.5em; 
+}
+ .container{
+   display: inline-grid;
+   border: 3px solid blue;
+ }
+ .itemGif1{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: inline-block;
+ }
+
+ .item2up{
+  grid-column-start:2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    border: 1px solid black;
+    width: 300px;
+ }
+ .item3up{
+  grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    border: 1px solid black;
+    width: 350px;
+ }
+ .item4up{
+  grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    border: 1px solid black;
+    width: 600px;
+ }
+
+#canvas{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  border: 3px solid red;
+
+}
+.itemDice {
+  grid-column-start:2;
+  grid-column-end: 3;
+  border: 1px solid black;
+  width: 300px;
+}
+
+.itemGif2{    
+    grid-column-start:1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    border: 1px solid black;
+    display: inline-block;
+  }
+  .item2down{
+    grid-column-start:2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    border: 1px solid black;
+    width: 300px;
+  }
+  .item3down{
+    grid-column-start:3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    border: 1px solid black;
+    width: 350px;
+  }
+  .item4down{
+    grid-column-start:4;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    border: 1px solid black;
+    width: 600px;
+  }
+
+
+
+    /*display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    width: 20%;
+    padding: 10px 0;
+    border: 3px solid black ;
+    margin: 0.5% 40%;
+    font-size: 1.5em; 
+    */
