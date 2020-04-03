@@ -185,17 +185,9 @@ const initialPlayerPosition=()=>{
     drawSmiley(1050, 920,P1_COLOR,P1_STROKE_COLOR); 
     renderPlayerNames('Player1:',1008, 880);
     drawSmiley(1050, 770,P2_COLOR,P2_STROKE_COLOR);
-    renderPlayerNames('Player2:',1008, 730);  
-
-    // to check the winning condition
-    
-    drawSmiley(950, 50,P1_COLOR,P1_STROKE_COLOR); 
-    drawSmiley(850, 50,P2_COLOR,P2_STROKE_COLOR); 
-    players[0].position = 91;
-    players[1].position =92; 
-    document.getElementById('dicePicture').style.visibility = 'hidden';
-
+    renderPlayerNames('Player2:',1008, 730);     
 }
+
 const drawSmiley = (pointX, pointY,color,border)=>{
     let ctx = canvas.getContext('2d');
     ctx.beginPath();
@@ -221,7 +213,9 @@ const drawSmiley = (pointX, pointY,color,border)=>{
  const startGame=()=>{
     document.getElementById('gameContainer').style.display='block';
     document.getElementById('startGame').style.display = 'none';
+    freshStart(); 
  }
+
  document.getElementById('startGame').addEventListener('click', startGame);
  // renderBoard FUNCTION IS CALLED FIRST AS THE DOM IS LOADED
  document.addEventListener('DOMContentLoaded', renderBoard)
