@@ -1,5 +1,3 @@
-
-
 // creates a sqaure object assciated with each square/cell on the board and
 // push it into the array sqaures
 const createSquares=(xPos,yPos,squareColor)=>{
@@ -35,11 +33,10 @@ const populateSqaureWithSnakeOrLadder=()=>{
 }
 
 const rollDice =()=>{
-    document.getElementsByClassName('item3down').innerHTML = " ";
-
+    clearDisplay();  
     console.log('dice rolled');
     let roll = generateDiceNum(); // creates a number from 1 to 6
-   // roll =2;
+    roll =6;
     console.log('roll', roll);
    // display the dice rolled
    //Move the player1 according to the dice rolled
@@ -50,6 +47,7 @@ const generateDiceNum=()=>{
     let roll = Math.floor((Math.random() * 6) + 1);
    return roll;
 }
+
 
 const movePlayer =(diceRoll)=>{
     let newPosition =0,player;
@@ -81,21 +79,39 @@ const movePlayer =(diceRoll)=>{
 }
 const displayPlayerMoves=(newP, pl,diceRoll)=>{
     // check if the new Pos is occupied by the other player and if it is move onto the next pos
+ //   let newPosition = newP;
+    playerDisplayState.diceRoll = diceRoll;
+    playerDisplayState.prevPosition = pl.position;
+    playerDisplayState.newPosition = newP;
     let newPosition = checkNewPosOccupied(newP,pl);
-   //display text to user about the position and movement of the current player
-    displayPosAndDice(pl,newPosition,diceRoll);
+    if(newP+1 == newPosition)
+    {
+        playerDisplayState.bousBefore = true;// for displaying the bonus on Html
+    }
     // check for winner
     let isWinner = winningCondition(newPosition,pl);  
+    playerDisplayState.isVictorious = isWinner;
     if(!isWinner){
      keepGoing(newPosition,pl);
-    }   
+    }  
+    console.log('playerDisplayState', playerDisplayState);
+    displayPosAndDice(pl,newP,diceRoll);
+    setPlayerDisplayStateToOriginal();
 }
+
+ const setPlayerDisplayStateToOriginal=()=>{
+    playerDisplayState= {diceRoll: 0,bousBefore: false, prevPosition:0,
+        newPosition:0, isLadderorSnake: false, gotLadderSnake: '',
+        LadderorSnakeEnd:0, bonusAfterLOrS: false, isVictorious:false}; 
+ }
+
 const keepGoing=(newPosition,pl)=>{
+    let climbUpDownPos;
      //fetch the sqaure on which player will be moving to
- let squareObj= fetchSquare(newPosition); console.log('player moved',squareObj);
+    let squareObj= fetchSquare(newPosition); console.log('player moved',squareObj);
     if(squareObj.hasSnakeOrLadder==LADDER ||squareObj.hasSnakeOrLadder==SNAKE)
-    {   //At this position the player will either climb up or go down
-     //we will look the end position from the laddersAndSnakes array
+    { //At this position the player will either climb up or go down
+     //we will look at the end position from the laddersAndSnakes array
      // And set the new position to the end position of the ladder or array
      laddersAndSnakes.forEach(function (ld){
          if(ld.start == squareObj.squareNum){ 
@@ -107,8 +123,15 @@ const keepGoing=(newPosition,pl)=>{
         let newSquare = fetchSquare(climbUpDownPos); // getting the new square obj from the new position we will set on the player
         // check if the end pos is occupied
         newPosition = checkNewPosOccupied(newSquare.squareNum,pl);
+        if(newPosition == climbUpDownPos+1){
+            playerDisplayState.bonusAfterLOrS = true;
+        }
         newSquareObj= fetchSquare(newPosition);
         setTimeout(renderPlayerToNewPos(newSquareObj,pl),2000);
+        // Saving the state to display on html appropriate content
+        playerDisplayState.isLadderorSnake = true;
+        playerDisplayState.gotLadderSnake = squareObj.hasSnakeOrLadder;
+        playerDisplayState.LadderorSnakeEnd = climbUpDownPos;
     }
     else{
         renderPlayerToNewPos(squareObj,pl);    
@@ -126,9 +149,6 @@ const winningCondition =(newP, player)=>{
         renderPlayerToNewPos(squareObj,player);// display the player on board on 100th position
         erasePlayerOldPos(player);
         player.position =  newP;   
-        // play audio for winner, display on html who wins
-        // hide the roll dice button
-        // show the new game button
         win = true;
     }
     return win;
@@ -160,24 +180,23 @@ const erasePlayerOldPos=(pl)=>{
 }
 const checkNewPosOccupied=(newP,pl)=>{
     let posOfOtherPlayer; 
+    let newPosition = newP;
     if(pl.id==1){// if current player is player 1 and its new position is already occupied with Player2
         // call player 2 at index 1 to check and then increment player 1 position by 1 if they match
         posOfOtherPlayer = players[1].position;
         if(newP==posOfOtherPlayer)
         {
-            newP +=1;
-          
+            newPosition= newP +1;
         }
     } else{// if current player is player 2 and its new position is already occupied with Player1
         // call player 1 at index 0 to check and then increment player 2 position by 1 if they match
         posOfOtherPlayer = players[0].position;
         if(newP==posOfOtherPlayer)
         {
-            newP +=1;
-           
+            newPosition= newP +1;
         }
     }
-    return newP;
+     return newPosition;
 }
 
 const renderBackTheBoard=(squareObj)=>{
@@ -195,26 +214,6 @@ const renderSqaureNum=(squareObj)=>{
     context.fillText(squareObj.squareNum, xpos, ypos);
 }
 
-const displayPosAndDice=(player,newP, dice)=>{
-  let diceDisplay= document.getElementById('currentPlayerDown');
-  let playerMoves =document.getElementById('currentPlayerDownP1');
-  let nextLine = document.getElementById('currentPlayerDownP2');
-  let bonusText1, bonusText2;
-   diceDisplay.textContent = player.name +' rolled '+ dice;
-   diceDisplay.style.color= 'green';
-   playerMoves.textContent = player.name + ' moves from '+ player.position+ ' to '+ newP;
-   if(player.position!== -1 && player.position+ dice + 1 == newP)
-   {
-    bonusText1 = 'You will walk one square extra as on your position there is other player ';
-    bonusText2 = 'your new position will be ' + player.position + ' + '+ dice+ ' + ' +1;   
-    nextLine.textContent = bonusText1+bonusText2;
-   }
-   else{
-    nextLine.textContent='';
-   }
-}
-const displayBonus=(newPosition)=>{
-   let bonus= document.getElementById('bonus');
-   bonus.textContent = 'You get to move one square ahead of your actual position! Now you are at: '+ newPosition;
-}
+
 document.getElementById('dice').addEventListener('click',rollDice);
+

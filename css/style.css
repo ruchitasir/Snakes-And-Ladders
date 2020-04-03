@@ -1,4 +1,6 @@
- 
+ h1{
+   text-align: center;
+ }
   table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
@@ -15,18 +17,68 @@
   background-color: #cae8ca;
   border: 2px solid #4CAF50;
   width: 60%;
+  font-size: 1.2em; 
+}
+
+#playerRolledDice{
+  text-align: center;
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #4CAF50;
+  text-decoration: underline;
+  border: 5px solid purple;
+  border-radius: 15px;
+  margin: 0 2px;
+}
+#playerMovement{
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: purple;
+  border: 5px solid #4CAF50;
+  border-radius: 15px;
+  margin: 0 2px;
+}
+
+#climbUpDown{
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #4CAF50;
+  border: 5px solid purple;
+  border-radius: 15px;
+  margin: 0 2px;
+}
+#restart{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 5px;
+  background-color: #cae8ca;
+  border: 2px solid #4CAF50;
+  width: 60%;
+  height: 40%;
   font-size: 1.5em; 
+  margin-top: 20%;
+  margin-bottom: 10%;
+  margin-left: 20%;
+}
+
+#restart{
+  display: none;
 }
  .container{
    display: inline-grid;
-   border: 3px solid blue;
+ 
  }
- .itemGif1{
+ .item1up{
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 2;
-  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border: 1px solid black;
  }
 
  .item2up{
@@ -34,31 +86,42 @@
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 2;
-    border: 1px solid black;
     width: 300px;
+    height: 150px;
+    text-align: center;
+    border: 1px solid black;
  }
  .item3up{
   grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 2;
+    width: 150px;
+    height: 150px;
     border: 1px solid black;
-    width: 350px;
  }
+
  .item4up{
-  grid-column-start: 4;
+    grid-column-start: 4;
     grid-column-end: 5;
     grid-row-start: 1;
     grid-row-end: 2;
+    width: 300px;
     border: 1px solid black;
-    width: 600px;
  }
+.item5up{
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    width: 300px;
+    border: 1px solid black;
+}
 
 #canvas{
   grid-column-start: 1;
   grid-column-end: 2;
-  border: 3px solid red;
-
+  margin-bottom: 100px;
 }
 .itemDice {
   grid-column-start:2;
@@ -80,27 +143,47 @@
     grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 4;
-    border: 1px solid black;
-    width: 300px;
+    width: 150px;
   }
   .item3down{
     grid-column-start:3;
     grid-column-end: 4;
     grid-row-start: 3;
     grid-row-end: 4;
-    border: 1px solid black;
-    width: 350px;
+    width: 150px;
   }
   .item4down{
     grid-column-start:4;
     grid-column-end: 5;
     grid-row-start: 3;
     grid-row-end: 4;
-    border: 1px solid black;
-    width: 600px;
+    width: 300px;
   }
+  .item5down{
+    grid-column-start:5;
+    grid-column-end: 6;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    border: 1px solid black;
+    width: 350px;
+  }
+  .item6down{
+    grid-column-start:6;
+    grid-column-end: 7;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    border: 1px solid black;
+    width: 350px;
+  }
+  
 
-
+#sticky{
+  background-color: rgba(255,255, 255, 0.75);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  
+}
 
     /*display: flex;
     flex-direction: column;

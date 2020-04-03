@@ -1,3 +1,4 @@
+
 // CLASS AND ARRAY AND PRIMITIVES DECLARATIONS
 class square {
     constructor(squareId, xPos, yPos, color) {
@@ -30,7 +31,10 @@ let laddersAndSnakes = [{start:4, end:25,isSnakeOrLadder:LADDER},
                         {start:99, end:65,isSnakeOrLadder:SNAKE},
                        ]
 let playerTurn = 0; // turn specifies which player will roll the dice, 0 for P1 and 1 for P2
- /*-------------------------------------------------------------------------------*/
+let playerDisplayState= {diceRoll: 0,bousBefore: false, prevPosition:0,
+    newPosition:0, isLadderorSnake: false, gotLadderSnake: '',
+    LadderorSnakeEnd:0, bonusAfterLOrS: false, isVictorious:false}; // maintains the state for Html display of player moves
+/*-------------------------------------------------------------------------------*/
  // CANVAS DECLARATIONS
  const CANVAS_UNIT_WIDTH = 1100;
  const CANVAS_UNIT_HEIGHT = 1000;
