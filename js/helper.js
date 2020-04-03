@@ -43,8 +43,9 @@ const rollDice =()=>{
     movePlayer(roll);
 }
 const displayDiceImages=(diceRoll)=>{
-   let diceName = 'dice'+diceRoll;
-    document.getElementById('dicePicture').style.visibility='visible';
+    let diceName = 'dice'+diceRoll;
+   document.getElementById('sticky').style.visibility ='visible';
+   document.getElementById('diceface').style.visibility='visible';
    document.getElementById('diceface').src = 'images/'+diceName+'.png';
 }
 

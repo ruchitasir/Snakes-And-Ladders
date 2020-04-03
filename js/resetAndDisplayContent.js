@@ -42,13 +42,13 @@ const displayPosAndDice=(player,newP, dice)=>{
   
       if(playerDisplayState.gotLadderSnake == LADDER)
           {
-            statement = statement + ' Here he climbs up to ' + playerDisplayState.LadderorSnakeEnd+' &#128515' +'.'; 
+            statement = statement + ' Here he climbs up to ' + playerDisplayState.LadderorSnakeEnd +'.'; 
             statement = statement + ' At ' + playerDisplayState.LadderorSnakeEnd + 
             ' there is another player, so he moves to next position ' + (playerDisplayState.LadderorSnakeEnd+1) + '.';
           }
           else if(playerDisplayState.gotLadderSnake== SNAKE)
           {
-              statement = statement + ' Here he falls down to ' + playerDisplayState.LadderorSnakeEnd+' &#128543' +'.'; 
+              statement = statement + ' Here he falls down to ' + playerDisplayState.LadderorSnakeEnd +'.'; 
               statement = statement + ' At ' + playerDisplayState.LadderorSnakeEnd + 
               ' there is another player, so he moves to next position ' + (playerDisplayState.LadderorSnakeEnd+1)+'.';
           }
@@ -57,7 +57,7 @@ const displayPosAndDice=(player,newP, dice)=>{
           + playerDisplayState.newPosition+ ' to '+  playerDisplayState.LadderorSnakeEnd + 
           '. And +1 which is ' + (playerDisplayState.LadderorSnakeEnd+1) +'.';
   
-          playerMoves.textContent = statement;
+          playerMoves.textContent = statement; 
           nextLine.textContent = text1;
   }
   
@@ -72,18 +72,18 @@ const displayPosAndDice=(player,newP, dice)=>{
       if(playerDisplayState.gotLadderSnake == LADDER)
       {   statement = statement + ' Here he finds another player, so moves to next ' + (playerDisplayState.newPosition +1) +'.'; 
           statement = statement + ' At ' + (playerDisplayState.newPosition +1) + 
-          ' there is a ladder, so he moves to ' + (playerDisplayState.LadderorSnakeEnd) +' &#128515' ;
+          ' there is a ladder, so he moves to ' + (playerDisplayState.LadderorSnakeEnd);
       }
       else if(playerDisplayState.gotLadderSnake == SNAKE)
       {   statement = statement + ' Here he finds another player, so moves to next ' + (playerDisplayState.newPosition +1)  +'.'; 
           statement = statement + ' At ' + (playerDisplayState.newPosition +1) + 
-          ' there is a snake, so he falls down to ' + (playerDisplayState.LadderorSnakeEnd) +' &#128543';
+          ' there is a snake, so he falls down to ' + (playerDisplayState.LadderorSnakeEnd);
       }  
   
       text1 = player.name + ' moves from '+ playerDisplayState.prevPosition +' to '
       + playerDisplayState.newPosition + ' to + 1 which is' +  (playerDisplayState.newPosition +1) 
       + ' to '+ playerDisplayState.LadderorSnakeEnd + '.';
-  
+      
       playerMoves.textContent = statement;
       nextLine.textContent = text1;
   }
@@ -98,9 +98,9 @@ const displayPosAndDice=(player,newP, dice)=>{
   
       if(playerDisplayState.gotLadderSnake == LADDER)
       {  
-          statement = statement + ' Here he climbs up to ' + playerDisplayState.LadderorSnakeEnd+' &#128515' +'.'; 
+          statement = statement + ' Here he climbs up to ' + playerDisplayState.LadderorSnakeEnd+'.'; 
       }else if (playerDisplayState.gotLadderSnake == SNAKE){
-          statement = statement + ' Here he falls down to ' + playerDisplayState.LadderorSnakeEnd+' &#128543' +'.'; 
+          statement = statement + ' Here he falls down to ' + playerDisplayState.LadderorSnakeEnd+'.'; 
       }
   
       text1 = player.name + ' moves from ' + playerDisplayState.prevPosition +' to '
@@ -149,17 +149,18 @@ const displayPosAndDice=(player,newP, dice)=>{
   document.getElementById('dice').style.display = 'none';
   document.getElementById('restart').style.display = 'block';
   document.getElementById('backToFront').style.display = 'block';
-  document.getElementById('winner').textContent = 'Well Done! '+  `${player.name} wins the game`;
+  document.getElementById('winner').textContent = 'Well Done! '+  `${player.name} wins the game`+'.';
   document.getElementById('playerWin').play();
-  document.getElementById('playerMovement').textContent ='Well Done! '+  `${player.name} wins the game`;
+  document.getElementById('playerMovement').textContent ='Well Done! '+  `${player.name} wins the game`+'.';
+  document.getElementById('climbUpDown').innerHTML='<p>&#128515  &#128515 &#128515 &#128515  &#128515 &#128515 &#128515  &#128515 &#128515</p>';
   }
 
   const clearDisplay =()=>{
     document.getElementById('playerRolledDice').innerHTML = " ";
     document.getElementById('playerMovement').innerHTML = " ";
     document.getElementById('climbUpDown').innerHTML = " ";
-    //document.getElementsByClassName('item6down').innerHTML = " ";
-    document.getElementById('dicePicture').style.visibility = 'hidden';
+    document.getElementById('sticky').style.visibility ='hidden';
+
 }
 
 
@@ -176,7 +177,7 @@ const freshStart=()=>{
      drawSmiley(850, 50,P2_COLOR,P2_STROKE_COLOR); 
      players[0].position = 91;
      players[1].position =92; 
-     document.getElementById('dicePicture').style.visibility = 'hidden';
+     document.getElementById('diceface').style.visibility = 'hidden';
 }
 
  const removePlayersfromtheBoard=()=>{

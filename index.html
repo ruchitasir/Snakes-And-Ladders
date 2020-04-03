@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Sankes And Ladders</title>
-      <link rel="stylesheet" href="./css/style.css">
+  <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <h1>Snakes And Ladders</h1>
@@ -13,21 +14,22 @@
 
 <div class="gameContainer" id="gameContainer"> 
     
-    <div class= "container"> 
-        <div class="item1up"> 
-            <iframe src="https://giphy.com/embed/VhdsKeVBdhIe4" width="150" height="150" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-        </div>
-        <div class="item2up" id="currentPlayerUp"> 
-        <iframe src="https://giphy.com/embed/2lbhL8dSGMh8I" width="300" height="150" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-        </div> 
-        <div class="item3up"> 
-            <iframe src="https://giphy.com/embed/VhdsKeVBdhIe4" width="150" height="150" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-        </div>
-        <div class = "item4up">  
-            <button id="restart">Restart Game</button> 
-            <button id="backToFront">Back To Rules Page</button> 
-        </div>
-        <div class = "item5up" id="winner"> winner display </div>
+    <div class= "container" id="topContainer"> 
+       
+            <div class="item1up"> 
+                <iframe src="https://giphy.com/embed/VhdsKeVBdhIe4" width="150" height="150" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+            </div>
+            <div class="item2up" id="currentPlayerUp"> 
+            <iframe src="https://giphy.com/embed/2lbhL8dSGMh8I" width="300" height="150" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+            </div> 
+            <div class="item3up"> 
+                <iframe src="https://giphy.com/embed/VhdsKeVBdhIe4" width="150" height="150" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+            </div>
+            <div class = "item4up">  
+                <button id="restart">Restart Game</button> 
+                <button id="backToFront">Back To Rules Page</button> 
+            </div>
+            <div class = "item5up" id="winner"> winner display </div>
     </div>
 
     <div class= "container">
@@ -48,26 +50,6 @@
        <div class="item4down"  id="playerMovement">  </div>
        <div class="item5down" id="climbUpDown"></div>  
        <div class ="item6down"> 
-        <table>
-            <thead>
-                <tr>
-                    <th>Players</th>
-                    <th>Previous Position</th>
-                    <th>Next Position</th>
-                </tr>
-            </thead>
-            <tbody id="table-body">
-                <tr> 
-                    <th>Player1:</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                <tr><th>Player2:</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </tbody>
-        </table>
        </div>         
     </div>  
 
@@ -79,4 +61,3 @@
 <script  src="./js/helper.js"></script>
 <script  src="./js/resetAndDisplayContent.js"></script>
 </html>
-

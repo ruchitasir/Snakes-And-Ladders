@@ -1,6 +1,16 @@
  h1{
    text-align: center;
+   border: 5px solid #888888;
+   border-radius: 15px;
+   background-color: rgba(158, 201, 248, 0.932);
+   box-shadow: 5px 10px 18px #888888;
+   padding: 1%;
+   font-family: 'Aclonica';
  }
+ body{
+  font-family: 'Aclonica';
+ }
+
   table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
@@ -8,85 +18,15 @@
   table{
     width: 100%;
   }
- 
-#dice{
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  padding: 5px;
-  background-color: #cae8ca;
-  border: 2px solid #4CAF50;
-  width: 60%;
-  font-size: 1.2em; 
-}
-
-#playerRolledDice{
-  text-align: center;
-  font-size: 1.8em;
-  font-weight: bold;
-  color: #4CAF50;
-  text-decoration: underline;
-  border: 5px solid purple;
-  border-radius: 15px;
-  margin: 0 2px;
-}
-#playerMovement{
-  text-align: center;
-  font-size: 1.2em;
-  font-weight: bold;
-  color: purple;
-  border: 5px solid #4CAF50;
-  border-radius: 15px;
-  margin: 0 2px;
-}
-
-#climbUpDown{
-  text-align: center;
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #4CAF50;
-  border: 5px solid purple;
-  border-radius: 15px;
-  margin: 0 2px;
-}
-#restart{
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  padding: 5px;
-  background-color: #cae8ca;
-  border: 2px solid #4CAF50;
-  width: 60%;
-
-  font-size: 1.2em; 
-  margin-top: 10%;
-  margin-bottom: 10%;
-  margin-left: 20%;
-}
-
-#restart{
-  display: none;
-}
-#backToFront{
-  padding: 5px;
-  background-color: #cae8ca;
-  border: 2px solid #4CAF50;
-  width: 60%;
-  margin-left: 20%;
-  margin-bottom: 10%;
-  font-size: 1.2em; 
-}
-#backToFront{
-  display: none;
-}
+/*----------------GAME CONTAINER---------------------------*/
+/*-----------TOP CONTAINER IN GAME CONTAINER---------------*/
 .gameContainer{
-
   display: none;
 }
  .container{
    display: inline-grid;
- 
  }
+
  .item1up{
   grid-column-start: 1;
   grid-column-end: 2;
@@ -94,7 +34,8 @@
   grid-row-end: 2;
   width: 150px;
   height: 150px;
-  border: 1px solid black;
+  border: 10px solid #888888;
+  border-radius: 15px;
  }
 
  .item2up{
@@ -104,8 +45,9 @@
     grid-row-end: 2;
     width: 300px;
     height: 150px;
-    text-align: center;
-    border: 1px solid black;
+    background-color: #888888 ;
+    border: 10px solid #888888;
+    border-radius: 15px;
  }
  .item3up{
   grid-column-start: 3;
@@ -114,7 +56,8 @@
     grid-row-end: 2;
     width: 150px;
     height: 150px;
-    border: 1px solid black;
+    border: 10px solid #888888;
+    border-radius: 15px;
  }
 
  .item4up{
@@ -122,36 +65,100 @@
     grid-column-end: 5;
     grid-row-start: 1;
     grid-row-end: 2;
-    width: 300px;
-    border: 1px solid black;
+    width: 210px;
+    border: 10px solid #888888;
+    border-radius: 15px;
  }
 .item5up{
     grid-column-start: 5;
     grid-column-end: 6;
     grid-row-start: 1;
     grid-row-end: 2;
-    width: 300px;
-    border: 1px solid black;
+    width: 210px;
+    border: 10px solid #888888;
+    border-radius: 15px;
+    text-align: center;
+}
+#topContainer{
+  border: 10px solid rgba(158, 201, 248, 0.932);
+  border-radius: 15px;
+  box-shadow: 5px 10px 18px #888888;
+  margin-bottom: 1%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#winner{
+  text-align: center;
+  font-size: 1.8em;
+  font-weight: bold;
+  color: rgb(3, 73, 5);
+  }
+/*----------------BUTTONS---------------------------*/
+#restart{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 5px;
+  background-color: #cae8ca;
+  border: 10px solid #4CAF50;
+  width: 60%;
+  font-size: 1.2em; 
+  margin-top: 1%;
+  margin-bottom: 5%;
+  margin-left: 20%;
+  box-shadow: 5px 10px 18px #888888;
 }
 
+#restart{
+  display: none;
+}
+#backToFront{
+  padding: 5px;
+  background-color: #cae8ca;
+  border: 10px solid #4CAF50;
+  width: 60%;
+  margin-left: 20%;
+  margin-bottom: 1%;
+  font-size: 1.2em; 
+  box-shadow: 5px 10px 18px #888888;
+}
+#backToFront{
+  display: none;
+}
+/*------------------MIDDLE CONTAINERS-------------------------------------*/
 #canvas{
   grid-column-start: 1;
   grid-column-end: 2;
   margin-bottom: 100px;
+  border: 10px solid rgba(158, 201, 248, 0.932);
+  border-radius: 15px;
+  box-shadow: 5px 10px 18px #888888;
 }
 .itemDice {
   grid-column-start:2;
   grid-column-end: 3;
-  border: 1px solid black;
   width: 300px;
 }
 
+#dice{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 5px;
+  margin: 20%;
+  background-color: #cae8ca;
+  border: 10px solid #4CAF50;
+  width: 60%;
+  font-size: 1.2em; 
+  border-radius: 15px;
+  box-shadow: 5px 10px 18px #888888;
+}
+/*------------------BOTTOM CONTAINERS-------------------------------------*/
 .itemGif2{    
     grid-column-start:1;
     grid-column-end: 2;
     grid-row-start: 3;
     grid-row-end: 4;
-    border: 1px solid black;
     display: inline-block;
   }
   .item2down{
@@ -159,57 +166,90 @@
     grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 4;
-    width: 150px;
+    width: 200px;
   }
   .item3down{
     grid-column-start:3;
     grid-column-end: 4;
     grid-row-start: 3;
     grid-row-end: 4;
-    width: 150px;
+    width: 210px;
   }
   .item4down{
     grid-column-start:4;
     grid-column-end: 5;
     grid-row-start: 3;
     grid-row-end: 4;
-    width: 300px;
+    width: 285px;
   }
   .item5down{
     grid-column-start:5;
     grid-column-end: 6;
     grid-row-start: 3;
     grid-row-end: 4;
-    border: 1px solid black;
-    width: 350px;
+    width: 285px;
   }
   .item6down{
     grid-column-start:6;
     grid-column-end: 7;
     grid-row-start: 3;
     grid-row-end: 4;
-    border: 1px solid black;
-    width: 350px;
   }
-  
+   
 
 #sticky{
   background-color: rgba(255,255, 255, 0.75);
   position: fixed;
   bottom: 0;
   left: 0;
-  
+  border: 10px solid rgba(158, 201, 248, 0.932);
+  border-radius: 15px;
 }
 
-    /*display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    text-align: center;
-    cursor: pointer;
-    width: 20%;
-    padding: 10px 0;
-    border: 3px solid black ;
-    margin: 0.5% 40%;
-    font-size: 1.5em; 
-    */
+#imgDice{
+  border: 5px solid #888888;
+  border-radius: 15px;
+  background-color: rgba(255,255, 255, 0.75);
+}
+#dicePicture{
+  border: 5px solid #888888;
+  border-radius: 15px;
+}
+#diceface{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 2%;
+}
+
+#playerRolledDice{
+  text-align: center;
+  font-size: 1.8em;
+  font-weight: bold;
+  color: rgb(3, 73, 5);
+  text-decoration: underline;
+  border: 5px solid #888888;
+  border-radius: 15px;
+  
+  background-color: rgba(255,255, 255, 0.75);
+}
+#playerMovement{
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: purple;
+  border: 5px solid #888888;
+  border-radius: 15px;
+
+  background-color: rgba(255,255, 255, 0.75);
+}
+
+#climbUpDown{
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  color:  rgb(3, 73, 5);;
+  border: 5px solid #888888;
+  border-radius: 15px;
+  background-color: rgba(255,255, 255, 0.75);
+}

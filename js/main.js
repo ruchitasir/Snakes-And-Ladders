@@ -185,7 +185,12 @@ const initialPlayerPosition=()=>{
     drawSmiley(1050, 920,P1_COLOR,P1_STROKE_COLOR); 
     renderPlayerNames('Player1:',1008, 880);
     drawSmiley(1050, 770,P2_COLOR,P2_STROKE_COLOR);
-    renderPlayerNames('Player2:',1008, 730);     
+    renderPlayerNames('Player2:',1008, 730); 
+    
+    drawSmiley(1050, 320,P1_COLOR,P1_STROKE_COLOR); 
+    renderPlayerNames('Player1:',1008, 280);
+    drawSmiley(1050, 170,P2_COLOR,P2_STROKE_COLOR);
+    renderPlayerNames('Player2:',1008, 130);    
 }
 
 const drawSmiley = (pointX, pointY,color,border)=>{
