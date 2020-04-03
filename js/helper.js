@@ -36,11 +36,16 @@ const rollDice =()=>{
     clearDisplay();  
     console.log('dice rolled');
     let roll = generateDiceNum(); // creates a number from 1 to 6
-    roll =6;
+    displayDiceImages(roll); // display dice image according to the roll
     console.log('roll', roll);
    // display the dice rolled
    //Move the player1 according to the dice rolled
     movePlayer(roll);
+}
+const displayDiceImages=(diceRoll)=>{
+   let diceName = 'dice'+diceRoll;
+    document.getElementById('dicePicture').style.visibility='visible';
+   document.getElementById('diceface').src = 'images/'+diceName+'.png';
 }
 
 const generateDiceNum=()=>{

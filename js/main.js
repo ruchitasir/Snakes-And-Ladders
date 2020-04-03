@@ -188,11 +188,12 @@ const initialPlayerPosition=()=>{
     renderPlayerNames('Player2:',1008, 730);  
 
     // to check the winning condition
-    /*
+    
     drawSmiley(950, 50,P1_COLOR,P1_STROKE_COLOR); 
     drawSmiley(850, 50,P2_COLOR,P2_STROKE_COLOR); 
     players[0].position = 91;
-    players[1].position =92; */
+    players[1].position =92; 
+    document.getElementById('dicePicture').style.visibility = 'hidden';
 
 }
 const drawSmiley = (pointX, pointY,color,border)=>{
@@ -216,5 +217,11 @@ const drawSmiley = (pointX, pointY,color,border)=>{
     ctx.lineWidth =LINEWIDTH;
  }
  /*-------------------------------------------------------------------------------*/
-// renderBoard FUNCTION IS CALLED FIRST AS THE DOM IS LOADED
-document.addEventListener('DOMContentLoaded', renderBoard)
+ // shows the game board and game starts when user clicks the Start Game button
+ const startGame=()=>{
+    document.getElementById('gameContainer').style.display='block';
+    document.getElementById('startGame').style.display = 'none';
+ }
+ document.getElementById('startGame').addEventListener('click', startGame);
+ // renderBoard FUNCTION IS CALLED FIRST AS THE DOM IS LOADED
+ document.addEventListener('DOMContentLoaded', renderBoard)

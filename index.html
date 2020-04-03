@@ -7,20 +7,27 @@
 </head>
 <body>
     <h1>Snakes And Ladders</h1>
+<div class="frontPage">
+    <button id="startGame">Start Game</button> 
+</div>
 
+<div class="gameContainer" id="gameContainer"> 
+    
     <div class= "container"> 
         <div class="item1up"> 
             <iframe src="https://giphy.com/embed/VhdsKeVBdhIe4" width="150" height="150" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
         </div>
-       <div class="item2up" id="currentPlayerUp"> 
-       <iframe src="https://giphy.com/embed/2lbhL8dSGMh8I" width="300" height="150" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-      </div> 
+        <div class="item2up" id="currentPlayerUp"> 
+        <iframe src="https://giphy.com/embed/2lbhL8dSGMh8I" width="300" height="150" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        </div> 
         <div class="item3up"> 
             <iframe src="https://giphy.com/embed/VhdsKeVBdhIe4" width="150" height="150" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
         </div>
-        <div class = "item4up">  <button id="restart">Restart Game</button> </div>
+        <div class = "item4up">  
+            <button id="restart">Restart Game</button> 
+            <button id="backToFront">Back To Rules Page</button> 
+        </div>
         <div class = "item5up" id="winner"> winner display </div>
-    
     </div>
 
     <div class= "container">
@@ -34,10 +41,12 @@
        <div class="itemGif2"> 
            <img id ="imgDice" src="images/dice.gif" alt="dice rotating"> 
        </div>
-       <div class ="item2down" id="dicePicture"></div>
+       <div class="item2down" id="dicePicture">
+        <img id="diceface"  alt="dice with focus on one of the six faces">
+       </div>
        <div class="item3down" id="playerRolledDice"></div>
        <div class="item4down"  id="playerMovement">  </div>
-        <div class="item5down" id="climbUpDown"></div>  
+       <div class="item5down" id="climbUpDown"></div>  
        <div class ="item6down"> 
         <table>
             <thead>
@@ -62,6 +71,7 @@
        </div>         
     </div>  
 
+</div>
 </body>
 <audio id="playerWin" src="./sounds/crowdYay.wav"></audio>
 <audio id="climbingLadder" src="./sounds/victory.mp3"></audio>

@@ -57,14 +57,30 @@
   background-color: #cae8ca;
   border: 2px solid #4CAF50;
   width: 60%;
-  height: 40%;
-  font-size: 1.5em; 
-  margin-top: 20%;
+
+  font-size: 1.2em; 
+  margin-top: 10%;
   margin-bottom: 10%;
   margin-left: 20%;
 }
 
 #restart{
+  display: none;
+}
+#backToFront{
+  padding: 5px;
+  background-color: #cae8ca;
+  border: 2px solid #4CAF50;
+  width: 60%;
+  margin-left: 20%;
+  margin-bottom: 10%;
+  font-size: 1.2em; 
+}
+#backToFront{
+  display: none;
+}
+.gameContainer{
+
   display: none;
 }
  .container{

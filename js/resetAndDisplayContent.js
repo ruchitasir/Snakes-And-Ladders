@@ -148,17 +148,18 @@ const displayPosAndDice=(player,newP, dice)=>{
       // show the new game button
   document.getElementById('dice').style.display = 'none';
   document.getElementById('restart').style.display = 'block';
+  document.getElementById('backToFront').style.display = 'block';
   document.getElementById('winner').textContent = 'Well Done! '+  `${player.name} wins the game`;
-  //document.getElementById('playerWin').play();
+  document.getElementById('playerWin').play();
   document.getElementById('playerMovement').textContent ='Well Done! '+  `${player.name} wins the game`;
   }
 
   const clearDisplay =()=>{
-    document.getElementById('dicePicture').innerHTML = " ";
     document.getElementById('playerRolledDice').innerHTML = " ";
     document.getElementById('playerMovement').innerHTML = " ";
     document.getElementById('climbUpDown').innerHTML = " ";
-    document.getElementsByClassName('item6down').innerHTML = " ";
+    //document.getElementsByClassName('item6down').innerHTML = " ";
+    document.getElementById('dicePicture').style.visibility = 'hidden';
 }
 
 
@@ -185,10 +186,11 @@ const resetPlayerPosition=()=>{
     players[1].position = -1;    
 }
 
-
-
-
-
+const displayFrontAndRulesPage=()=>{
+    document.getElementById('gameContainer').style.display='none';
+    document.getElementById('startGame').style.display = 'block';
+}
+document.getElementById('backToFront').addEventListener('click', displayFrontAndRulesPage)
 document.getElementById('restart').addEventListener('click',freshStart);
 
 
