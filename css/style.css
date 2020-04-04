@@ -18,6 +18,64 @@
   table{
     width: 100%;
   }
+  .frontContainer{
+    display: inline-grid;
+  }
+  .imageDiv{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  border: 10px solid rgba(158, 201, 248, 0.932);
+  background-color: rgba(158, 201, 248, 0.932);
+  box-shadow: 5px 10px 18px #888888;
+  margin-top: 3%;
+  }
+  .startButton{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start:2;
+  grid-row-end: 3;
+  border: 10px solid rgba(158, 201, 248, 0.932);
+  border-radius: 15px;
+  margin-top: 3%;
+  box-shadow: 5px 10px 18px #888888;
+  }
+  .rules{
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start:1;
+  grid-row-end: 3;
+  background-color: rgba(158, 201, 248, 0.932);
+  border: 10px solid rgba(158, 201, 248, 0.932);
+  border-radius: 10px 80px;
+  width: 880px;
+  margin-left: 5%;
+  margin-right: 5%;
+  box-shadow: 5px 10px 18px #888888;
+  margin-top: 2.5%;
+  }
+
+  #imageSL{
+   margin-left: auto;
+   margin-right: auto;
+   display: block;
+   border: 10px solid #888888;
+   border-radius: 15px;
+  }
+
+  #startGame{
+  padding: 5px;
+  background-color: #cae8ca;
+  border: 10px solid #4CAF50;
+  width: 40%;
+  margin-left: 30%;
+  margin-bottom: 1%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  font-size: 1.2em; 
+  box-shadow: 5px 10px 18px #888888;
+  }
 /*----------------GAME CONTAINER---------------------------*/
 /*-----------TOP CONTAINER IN GAME CONTAINER---------------*/
 .gameContainer{
@@ -129,7 +187,7 @@
 #canvas{
   grid-column-start: 1;
   grid-column-end: 2;
-  margin-bottom: 100px;
+  margin-bottom: 120px;
   border: 10px solid rgba(158, 201, 248, 0.932);
   border-radius: 15px;
   box-shadow: 5px 10px 18px #888888;
@@ -160,6 +218,9 @@
     grid-row-start: 3;
     grid-row-end: 4;
     display: inline-block;
+    border: 5px solid #888888;
+    border-radius: 15px;
+    background-color: rgba(255,255, 255, 0.75);
   }
   .item2down{
     grid-column-start:2;
@@ -207,9 +268,7 @@
 }
 
 #imgDice{
-  border: 5px solid #888888;
-  border-radius: 15px;
-  background-color: rgba(255,255, 255, 0.75);
+  
 }
 #dicePicture{
   border: 5px solid #888888;
@@ -224,7 +283,7 @@
 
 #playerRolledDice{
   text-align: center;
-  font-size: 1.8em;
+  font-size: 1.5em;
   font-weight: bold;
   color: rgb(3, 73, 5);
   text-decoration: underline;
@@ -240,7 +299,6 @@
   color: purple;
   border: 5px solid #888888;
   border-radius: 15px;
-
   background-color: rgba(255,255, 255, 0.75);
 }
 

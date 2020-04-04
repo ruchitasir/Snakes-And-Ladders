@@ -218,6 +218,7 @@ const drawSmiley = (pointX, pointY,color,border)=>{
  const startGame=()=>{
     document.getElementById('gameContainer').style.display='block';
     document.getElementById('startGame').style.display = 'none';
+    document.getElementById('frontPage').style.display = 'none';
     freshStart(); 
  }
 

@@ -1,9 +1,15 @@
 
-const displayPosAndDice=(player,newP, dice)=>{
+const displayPosAndDice=(player, dice)=>{
     let diceDisplay= document.getElementById('playerRolledDice');
-   
-    diceDisplay.textContent = player.name + ' rolled ' + dice + '.';
-   
+    let fullText;
+    let otherPlayer = anotherPlayerInfo(player);
+    /*fullText = player.name + ' rolled ' + dice + '.';
+    fullText = fullText + otherPlayer.name + ' at ' + otherPlayer.position+'.' ;
+    diceDisplay.textContent = fullText;*/
+    fullText = player.name + ' rolled ' + dice + '.';
+   let fullText1 =  otherPlayer.name + ' at ' + otherPlayer.position+'.' ;
+    diceDisplay.innerHTML = '<br>'+fullText+'<br>'+fullText1;
+
     if(!playerDisplayState.isVictorious)
       {
        switch(true){
@@ -31,6 +37,12 @@ const displayPosAndDice=(player,newP, dice)=>{
   
   }
   
+ const anotherPlayerInfo=(pl)=>{
+    if(pl.name == players[0].name){
+        return players[1];
+    }
+    else { return players[0];}
+ }
   
   const renderTextOnHtml1 =(player)=>{
       let playerMoves =document.getElementById('playerMovement');
@@ -197,6 +209,7 @@ const resetPlayerPosition=()=>{
 
 // Takes back to Front Rules page and starts a new game
 const displayFrontAndRulesPage=()=>{
+    document.getElementById('frontPage').style.display = 'block';
     document.getElementById('gameContainer').style.display='none';
     document.getElementById('startGame').style.display = 'block';
 }

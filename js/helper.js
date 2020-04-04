@@ -101,7 +101,7 @@ const displayPlayerMoves=(newP, pl,diceRoll)=>{
      keepGoing(newPosition,pl);
     }  
     console.log('playerDisplayState', playerDisplayState);
-    displayPosAndDice(pl,newP,diceRoll);
+    displayPosAndDice(pl,diceRoll);
     setPlayerDisplayStateToOriginal();
 }
 
