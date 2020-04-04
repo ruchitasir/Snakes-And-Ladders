@@ -18,13 +18,49 @@
     <div class="rules">      
         <h2>Game Rules</h2>
         <ul>
-            <li>Its a two player game. When the dice button is clicked. Player 1 moves on the board</li>
-            <li>He moves as many cells as the dice indicates.</li>
-            <li>If the next position is occupied by other player. He gets bonus to walk one cell extra
-                For ex. Player 1 is at 4, he rolls 4. He goes to 4+4= 8. On 8, there is another player
+            <li class="oddLi">
+                Its a two player game. When the dice button is clicked, 
+                player 1 moves on the board. He moves as many cells as the dice indicates.
+                Ex. player 1 is at 52, dice showed 5. He will go to 57.
+            </li>
+            <li class="evenLi">
+                After the player 1 moves, click the dice again for the next player to move. Next player
+                will move as the dice indicates. Hit the dice button again for Player 1 to move. 
+                Player 1 and 2 take turns to click the dice button.
+            </li>
+            <li class="oddLi">
+                If the next position is occupied by other player. He gets bonus to walk one cell extra.
+                For ex. Player 1 is at 4, he rolls 4. He goes to 4+4 = 8. On 8, there is another player
                 so he moves to 8+1 = 9.
             </li>
-        </ul>
+            <li class="evenLi">
+                If there is a ladder on the position where player is supposed to go, then he moves 
+                up the ladder. For ex: a player at 8 rolls 5, goes to 13. On 13, there is a ladder 
+                which ends at 16, so he climbs up the ladder.
+                If on 16, there is another player, then he gets to move one cell extra. And his
+                new position will be 17. If there is a ladder or a snake at 17, player still remains there.               
+            </li>
+            <li class="oddLi"> 
+                If there is a snake on the position where player is supposed to go, then he moves 
+                down to the position where the tail of snake ends. For ex: a player at 8 rolls 5, goes to 13. On 13, 
+                there is a snake, whose tail is at 6, then he goes down to 6.
+                If on 6, there is another player, then he gets to move one cell extra. And his
+                new position will be 7. If there is a ladder or a snake at 7, player still remains there.
+            </li>
+            <li class="evenLi">
+                If the position where player is supposed to go is occupied, he moves to next.
+                On the next position, if there is a snake or a ladder, he will either move down or go up.
+                For ex. Player is at 40, he rolls 6, at 46 there is another player. So, he goes to 47 but at 47, 
+                there is a snake so he goes down to 34(snake's tail)or if there is a ladder, he goes to 
+                55(ladder's top).       
+            </li>
+            <li class="oddLi">The player that reaches 100 first, wins the game. </li>
+            <li class="evenLi">
+                Once the player wins the game, there is an option to start the game again 
+                through restart game button which shows up after the victory. The other option that shows up 
+                is to come back to this page.
+            </li>
+         </ul>
     </div>
 
 </div>
@@ -32,7 +68,6 @@
 <div class="gameContainer" id="gameContainer"> 
     
     <div class= "container" id="topContainer"> 
-       
             <div class="item1up"> 
                 <iframe src="https://giphy.com/embed/VhdsKeVBdhIe4" width="150" height="150" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
             </div>
@@ -72,8 +107,9 @@
 
 </div>
 </body>
-<audio id="playerWin" src="./sounds/crowdYay.wav"></audio>
-<audio id="climbingLadder" src="./sounds/victory.mp3"></audio>
+<audio id="playerWin" src="./sounds/victory.mp3"></audio>
+<audio id="climbingLadder" src="./sounds/crowdYay.wav"></audio>
+<audio id="snakeBitten" src="./sounds/firworksRocket.wav"></audio>
 <script  src="./js/main.js"></script>
 <script  src="./js/helper.js"></script>
 <script  src="./js/resetAndDisplayContent.js"></script>

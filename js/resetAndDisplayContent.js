@@ -1,13 +1,9 @@
 
 const displayPosAndDice=(player, dice)=>{
     let diceDisplay= document.getElementById('playerRolledDice');
-    let fullText;
     let otherPlayer = anotherPlayerInfo(player);
-    /*fullText = player.name + ' rolled ' + dice + '.';
-    fullText = fullText + otherPlayer.name + ' at ' + otherPlayer.position+'.' ;
-    diceDisplay.textContent = fullText;*/
-    fullText = player.name + ' rolled ' + dice + '.';
-   let fullText1 =  otherPlayer.name + ' at ' + otherPlayer.position+'.' ;
+    let fullText = player.name + ' rolled ' + dice + '.';
+    let fullText1 =  otherPlayer.name + ' at ' + otherPlayer.position+'.' ;
     diceDisplay.innerHTML = '<br>'+fullText+'<br>'+fullText1;
 
     if(!playerDisplayState.isVictorious)
@@ -57,13 +53,15 @@ const displayPosAndDice=(player, dice)=>{
             statement = statement + ' Here he climbs up to ' + playerDisplayState.LadderorSnakeEnd +'.'; 
             statement = statement + ' At ' + playerDisplayState.LadderorSnakeEnd + 
             ' there is another player, so he moves to next position ' + (playerDisplayState.LadderorSnakeEnd+1) + '.';
-          }
+            document.getElementById('climbingLadder').play();
+        }
           else if(playerDisplayState.gotLadderSnake== SNAKE)
           {
               statement = statement + ' Here he falls down to ' + playerDisplayState.LadderorSnakeEnd +'.'; 
               statement = statement + ' At ' + playerDisplayState.LadderorSnakeEnd + 
               ' there is another player, so he moves to next position ' + (playerDisplayState.LadderorSnakeEnd+1)+'.';
-          }
+              document.getElementById('snakeBitten').play();
+         }
   
           text1 = player.name + ' moves from ' + playerDisplayState.prevPosition +' to '
           + playerDisplayState.newPosition+ ' to '+  playerDisplayState.LadderorSnakeEnd + 
@@ -85,11 +83,13 @@ const displayPosAndDice=(player, dice)=>{
       {   statement = statement + ' Here he finds another player, so moves to next ' + (playerDisplayState.newPosition +1) +'.'; 
           statement = statement + ' At ' + (playerDisplayState.newPosition +1) + 
           ' there is a ladder, so he moves to ' + (playerDisplayState.LadderorSnakeEnd);
+          document.getElementById('climbingLadder').play();
       }
       else if(playerDisplayState.gotLadderSnake == SNAKE)
       {   statement = statement + ' Here he finds another player, so moves to next ' + (playerDisplayState.newPosition +1)  +'.'; 
           statement = statement + ' At ' + (playerDisplayState.newPosition +1) + 
           ' there is a snake, so he falls down to ' + (playerDisplayState.LadderorSnakeEnd);
+          document.getElementById('snakeBitten').play();
       }  
   
       text1 = player.name + ' moves from '+ playerDisplayState.prevPosition +' to '
@@ -111,9 +111,11 @@ const displayPosAndDice=(player, dice)=>{
       if(playerDisplayState.gotLadderSnake == LADDER)
       {  
           statement = statement + ' Here he climbs up to ' + playerDisplayState.LadderorSnakeEnd+'.'; 
-      }else if (playerDisplayState.gotLadderSnake == SNAKE){
+          document.getElementById('climbingLadder').play();
+        }else if (playerDisplayState.gotLadderSnake == SNAKE){
           statement = statement + ' Here he falls down to ' + playerDisplayState.LadderorSnakeEnd+'.'; 
-      }
+          document.getElementById('snakeBitten').play();
+        }
   
       text1 = player.name + ' moves from ' + playerDisplayState.prevPosition +' to '
           + playerDisplayState.newPosition+ ' to '+  playerDisplayState.LadderorSnakeEnd+'.';
@@ -183,13 +185,13 @@ const freshStart=()=>{
     document.getElementById('winner').innerHTML = '';
     clearDisplay();
     removePlayersfromtheBoard(); // remove players from the board  
-
+    document.getElementById('diceface').style.visibility = 'hidden';
      // to check the winning condition
      drawSmiley(950, 50,P1_COLOR,P1_STROKE_COLOR); 
      drawSmiley(850, 50,P2_COLOR,P2_STROKE_COLOR); 
      players[0].position = 91;
      players[1].position =92; 
-     document.getElementById('diceface').style.visibility = 'hidden';
+    
 }
 
  const removePlayersfromtheBoard=()=>{
@@ -209,7 +211,7 @@ const resetPlayerPosition=()=>{
 
 // Takes back to Front Rules page and starts a new game
 const displayFrontAndRulesPage=()=>{
-    document.getElementById('frontPage').style.display = 'block';
+    document.getElementById('frontPage').style.display = 'inline-grid';
     document.getElementById('gameContainer').style.display='none';
     document.getElementById('startGame').style.display = 'block';
 }

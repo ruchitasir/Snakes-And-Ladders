@@ -36,6 +36,7 @@ const rollDice =()=>{
     clearDisplay();  
     console.log('dice rolled');
     let roll = generateDiceNum(); // creates a number from 1 to 6
+    roll =5;
     displayDiceImages(roll); // display dice image according to the roll
     console.log('roll', roll);
    // display the dice rolled
@@ -83,6 +84,7 @@ const movePlayer =(diceRoll)=>{
     console.log('newPosition , player',newPosition,player.id);
     displayPlayerMoves(newPosition,player,diceRoll);
 }
+
 const displayPlayerMoves=(newP, pl,diceRoll)=>{
     // check if the new Pos is occupied by the other player and if it is move onto the next pos
  //   let newPosition = newP;
@@ -102,7 +104,7 @@ const displayPlayerMoves=(newP, pl,diceRoll)=>{
     }  
     console.log('playerDisplayState', playerDisplayState);
     displayPosAndDice(pl,diceRoll);
-    setPlayerDisplayStateToOriginal();
+    setPlayerDisplayStateToOriginal();  
 }
 
  const setPlayerDisplayStateToOriginal=()=>{
@@ -142,7 +144,6 @@ const keepGoing=(newPosition,pl)=>{
     else{
         renderPlayerToNewPos(squareObj,pl);    
     }
-    // erase Player's old Position  
     erasePlayerOldPos(pl);
     pl.position =  newPosition;
 }
@@ -166,6 +167,8 @@ const fetchSquare=(pos)=>{
         { item= cell;}})
         return item; 
 }
+
+
 const renderPlayerToNewPos=(squareObj,pl)=>{
     let xCoord =squareObj.x + (BOARD_SQUARE_WIDTH_HEIGHT/2);
     // we add BOARD_SQUARE_WIDTH_HEIGHT/2 to x and y coordinates so that player in the form
@@ -184,6 +187,7 @@ const erasePlayerOldPos=(pl)=>{
         renderBackTheBoard(squareObj);      
     }  
 }
+
 const checkNewPosOccupied=(newP,pl)=>{
     let posOfOtherPlayer; 
     let newPosition = newP;
