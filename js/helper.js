@@ -1,3 +1,7 @@
+//THIS FILE CONTAINS HELPER FUNCTIONS TO 1)CREATE OBJECTS OF CLASS SQUARE AND STORES 
+// THEM 2) FUNCTIONS CALLED WHEN THE DICE BUTTON IS CLICKED TO RENDER PLAYER TO 
+//NEW POSITIONS,ERASE OLD POSITION AND RENDER THE GAME BOARD
+
 // creates a sqaure object assciated with each square/cell on the board and
 // push it into the array sqaures
 const createSquares=(xPos,yPos,squareColor)=>{
@@ -32,7 +36,7 @@ const populateSqaureWithSnakeOrLadder=()=>{
     })
 }
 
-
+// returns the object named square based on its id passed as 'pos' or position
 const fetchSquare=(pos)=>{
     let item;
     sqaures.forEach(function(cell){ if(cell.squareNum==pos)
@@ -40,13 +44,16 @@ const fetchSquare=(pos)=>{
         return item; 
 }
 
+// draws player to the new square position
 const renderPlayerToNewPos=(squareObj,pl)=>{
     let xCoord =squareObj.x + (BOARD_SQUARE_WIDTH_HEIGHT/2);
     // we add BOARD_SQUARE_WIDTH_HEIGHT/2 to x and y coordinates so that player in the form
-    // of small cirlce (radius 30 units) appears in the center of each cell or sqaure(100*100)
+    // of a small cirlce (radius 30 units) appears in the center of each cell or sqaure(100*100)
     let yCoord =squareObj.y + (BOARD_SQUARE_WIDTH_HEIGHT/2);
     drawSmiley(xCoord, yCoord,pl.color,pl.strokeColor);
 }
+
+// erases the players in the form of smileys from their old position
 const erasePlayerOldPos=(pl)=>{
     if(pl.position!=-1){
         let squareObj= fetchSquare(pl.position); 
@@ -59,6 +66,8 @@ const erasePlayerOldPos=(pl)=>{
     }  
 }
 
+// As the players are erased, those squares also lose their color and number
+// This function renders the board back
 const renderBackTheBoard=(squareObj)=>{
     // render the Sqaure of the board back with its original color
     drawSquare(squareObj.x,squareObj.y,squareObj.squareColor,BOARD_SQUARE_STROKE,BOARD_SQUARE_WIDTH_HEIGHT);
@@ -67,6 +76,8 @@ const renderBackTheBoard=(squareObj)=>{
     renderSnakeAndLadderImages();
 }
 
+//As the players are erased, those squares also lose their color and number
+// This function renders the number on the board back
 const renderSqaureNum=(squareObj)=>{
     context.fillStyle = BOARD_SQUARE_STROKE;
     context.font = '50px serif';
@@ -75,6 +86,8 @@ const renderSqaureNum=(squareObj)=>{
     context.fillText(squareObj.squareNum, xpos, ypos);
 }
 
+// playerDisplayState object is used to store the state of the player later on
+// for display purpose on the screen
 const setPlayerDisplayStateToOriginal=()=>{
     playerDisplayState= {diceRoll: 0,bousBefore: false, prevPosition:0,
         newPosition:0, isLadderorSnake: false, gotLadderSnake: '',

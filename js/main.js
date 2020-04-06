@@ -1,5 +1,7 @@
 
- // FUNCTIONS 
+ // THIS FILE CONTAINS FUNCTIONS TO DISPLAY THE ENTIRE BOARD AND PLAYERS
+
+// Called when the Domcontent is loaded and it renders everything on the screen
 const renderBoard = () => {   
     fillEntireBoard();// Fill entire board with sqaures of 100*100
     assignNumEachSqaure(); // Assign num 1-100 on each cell of the board
@@ -148,7 +150,7 @@ const drawSmiley = (pointX, pointY,color,border)=>{
     document.getElementById('frontPage').style.display = 'none';
     freshStart(); 
  }
-
  document.getElementById('startGame').addEventListener('click', startGame);
+
  // renderBoard FUNCTION IS CALLED FIRST AS THE DOM IS LOADED
  document.addEventListener('DOMContentLoaded', renderBoard)

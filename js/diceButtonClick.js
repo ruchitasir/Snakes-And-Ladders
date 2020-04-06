@@ -1,7 +1,6 @@
 
 const rollDice =()=>{
     clearDisplay();  
-    console.log('dice rolled');
     let roll = generateDiceNum(); // creates a number from 1 to 6
     displayDiceImages(roll); // display dice image according to the roll
     console.log('roll', roll);
@@ -9,6 +8,8 @@ const rollDice =()=>{
    //Move the player1 according to the dice rolled
     movePlayer(roll);
 }
+
+// As the dice numbers displays, the corresponding image is displayed
 const displayDiceImages=(diceRoll)=>{
     let diceName = 'dice'+diceRoll;
    document.getElementById('sticky').style.visibility ='visible';
@@ -21,7 +22,7 @@ const generateDiceNum=()=>{
    return roll;
 }
 
-
+// determines the turn of the players
 const movePlayer =(diceRoll)=>{
     let newPosition =0,player;
     if(playerTurn==0)
@@ -51,6 +52,7 @@ const movePlayer =(diceRoll)=>{
     displayPlayerMoves(newPosition,player,diceRoll);
 }
 
+//show the player moving from previous to new position
 const displayPlayerMoves=(newP, pl,diceRoll)=>{
     // check if the new Pos is occupied by the other player and if it is move onto the next pos
     playerDisplayState.diceRoll = diceRoll;
@@ -72,6 +74,9 @@ const displayPlayerMoves=(newP, pl,diceRoll)=>{
     setPlayerDisplayStateToOriginal();  
 }
 
+
+// if the new position is occupied by other player
+//move the current player to new position + 1
 const checkNewPosOccupied=(newP,pl)=>{
     let posOfOtherPlayer; 
     let newPosition = newP;
@@ -93,6 +98,8 @@ const checkNewPosOccupied=(newP,pl)=>{
      return newPosition;
 }
 
+//checks if the player has won the game and if he has, 
+//move the player on the board to 100th position
 const winningCondition =(newP, player)=>{
     let win = false;
     if(newP>=100){
@@ -106,6 +113,8 @@ const winningCondition =(newP, player)=>{
     return win;
 }
 
+//if the player is not close to the winning position
+// check for ladders and snakes on each position and move the player accordingly
 const keepGoing=(newPosition,pl)=>{
     let climbUpDownPos;
      //fetch the sqaure on which player will be moving to
@@ -141,4 +150,5 @@ const keepGoing=(newPosition,pl)=>{
     pl.position =  newPosition;
 }
 
+// dice button click event listener calls the rollDice function
 document.getElementById('dice').addEventListener('click',rollDice);

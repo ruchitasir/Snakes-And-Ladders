@@ -1,4 +1,14 @@
+// THIS JS FILE CONTAINS FUNCTIONS FOR DISPLAYING MESSAGES ON SCREEN FOR WINNING, 
+//IF A PLAYER HAS A LADDER OR A SNAKE ON THE POSITION
 
+
+// main function which calls appropriate display methods depending  on the situation
+// player is in.
+// functions like renderTextOnHtml1, renderTextOnHtml2, renderTextOnHtml3
+// renderTextOnHtml4, renderTextOnHtml5, winner display: shows a unique message for
+// each situation. The text string in every function looks similar but it is quite
+// different from the rest in terms of the message it displays
+//  It also plays appropriate sound
 const displayPosAndDice=(player, dice)=>{
     let diceDisplay= document.getElementById('playerRolledDice');
     let otherPlayer = anotherPlayerInfo(player);
@@ -40,6 +50,11 @@ const displayPosAndDice=(player, dice)=>{
     else { return players[0];}
  }
   
+ //This displays the message for the situation when the player's new
+ // position has a snake or ladder and after he climbs up or goes down to a different
+ // position, there he finds that positon is occupied by another player
+ // so, he moves one square ahead of that position
+ // It also plays appropriate sound
   const renderTextOnHtml1 =(player)=>{
       let playerMoves =document.getElementById('playerMovement');
       let nextLine = document.getElementById('climbUpDown');
@@ -71,6 +86,10 @@ const displayPosAndDice=(player, dice)=>{
           nextLine.textContent = text1;
   }
   
+  //This displays the message for the situation when the player's new
+ // position is occupied by another player, so he moves one square ahead of that position
+ //And now this poisition has a snake or a ladder, so he moves up or down from there
+ //It also plays appropriate sound
   const renderTextOnHtml2 =(player)=>{
       let playerMoves =document.getElementById('playerMovement');
       let nextLine = document.getElementById('climbUpDown');
@@ -100,6 +119,10 @@ const displayPosAndDice=(player, dice)=>{
       nextLine.textContent = text1;
   }
   
+  // This displays the message for the situation when the player's new position
+  //has a snake or a ladder and how he goes up or down from there
+  // It also plays appropriate sound
+  //  It also plays appropriate sound
   const renderTextOnHtml3=(player)=>{
       let playerMoves =document.getElementById('playerMovement');
       let nextLine = document.getElementById('climbUpDown');
@@ -124,6 +147,8 @@ const displayPosAndDice=(player, dice)=>{
       nextLine.textContent = text1;
   }
   
+ // This displays the message for the situation when the player's new position
+ // is occupied by another player, so he moves one square ahead of this player
   const renderTextOnHtml4=(player)=>{
       let playerMoves =document.getElementById('playerMovement');
       let nextLine = document.getElementById('climbUpDown');
@@ -140,7 +165,10 @@ const displayPosAndDice=(player, dice)=>{
       playerMoves.textContent = statement;
       nextLine.textContent = text1;
   }
-  
+ 
+ // This displays the message for the situation when the player moves from one position
+ // to another and there is no ladder or snake and the new position is also not 
+ //occupied
   const renderTextOnHtml5=(player)=>{
       let playerMoves =document.getElementById('playerMovement');
       let nextLine = document.getElementById('climbUpDown');
@@ -156,6 +184,8 @@ const displayPosAndDice=(player, dice)=>{
       nextLine.textContent = text1;
   }
   
+ // This displays the message about the player who wins the game
+ //and plays appropriate sound
   const winnerDisplay=(player)=>{
       // play audio for winner, display on html who wins
       // hide the roll dice button
