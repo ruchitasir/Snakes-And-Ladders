@@ -18,7 +18,8 @@ const freshStart=()=>{
     clearDisplay();
     removePlayersfromtheBoard(); // remove players from the board  
     document.getElementById('diceface').style.visibility = 'hidden';
-    
+    pauseAndLoadAudioForWinner();
+ 
 }
 
 //once the game is started or restarted, players are not anymore on the board
@@ -38,11 +39,17 @@ const resetPlayerPosition=()=>{
     players[1].position = -1;    
 }
 
+const pauseAndLoadAudioForWinner=()=>{
+    document.getElementById('playerWin').pause();
+    document.getElementById('playerWin').load();
+}
+
 // Takes back to Front (Rules) page and starts a new game
 const displayFrontAndRulesPage=()=>{
     document.getElementById('frontPage').style.display = 'inline-grid';
     document.getElementById('gameContainer').style.display='none';
     document.getElementById('startGame').style.display = 'block';
+    pauseAndLoadAudioForWinner();
 }
 
 document.getElementById('backToFront').addEventListener('click', displayFrontAndRulesPage)
