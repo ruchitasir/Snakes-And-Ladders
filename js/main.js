@@ -9,7 +9,6 @@ const renderBoard = () => {
     // Intial position of Player 1 and Player 2
     initialPlayerPosition(); // Right hand side of Canvas displays how player 1 and 2 looks
     populateSqaureWithSnakeOrLadder(); // In the square Object Array, set hasSnakeOrLadder property from laddersAndSnakes Array
-    console.log('squares array',sqaures);
 }
 // It creates the Game board and also corresponding sqaure objects which are stored in Sqaure array
 const fillEntireBoard=()=>{
@@ -68,7 +67,6 @@ const assignNumEachSqaure=()=>
                 x= 910-(100*i);
             }
             num = 10*j+i+1;
-            console.log("num x and y",num,x, y);
             context.fillText(num, x, y);
             assignEachSqaurePosition(num,x,y);
         }

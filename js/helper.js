@@ -18,7 +18,6 @@ const assignEachSqaurePosition=(number,xP,yP)=>{
        sqaures.forEach(function(cell){
         if(cell.x == xPos && cell.y == yPos)
         { cell.squareNum = number;
-            console.log('object Ids',number,xPos,yPos);
         } 
     })
 }

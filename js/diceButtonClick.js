@@ -3,7 +3,6 @@ const rollDice =()=>{
     clearDisplay();  
     let roll = generateDiceNum(); // creates a number from 1 to 6
     displayDiceImages(roll); // display dice image according to the roll
-    console.log('roll', roll);
    // display the dice rolled
    //Move the player1 according to the dice rolled
     movePlayer(roll);
@@ -48,7 +47,7 @@ const movePlayer =(diceRoll)=>{
         playerTurn =0; // changing the turn to 0 for player 1 to move next time
         player = players[1];
     }
-    console.log('newPosition , player',newPosition,player.id);
+    
     displayPlayerMoves(newPosition,player,diceRoll);
 }
 
@@ -69,7 +68,6 @@ const displayPlayerMoves=(newP, pl,diceRoll)=>{
     if(!isWinner){
      keepGoing(newPosition,pl);
     }  
-    console.log('playerDisplayState', playerDisplayState);
     displayPosAndDice(pl,diceRoll);
     setPlayerDisplayStateToOriginal();  
 }
@@ -118,7 +116,7 @@ const winningCondition =(newP, player)=>{
 const keepGoing=(newPosition,pl)=>{
     let climbUpDownPos;
      //fetch the sqaure on which player will be moving to
-    let squareObj= fetchSquare(newPosition); console.log('player moved',squareObj);
+    let squareObj= fetchSquare(newPosition); 
     if(squareObj.hasSnakeOrLadder==LADDER ||squareObj.hasSnakeOrLadder==SNAKE)
     { //At this position the player will either climb up or go down
      //we will look at the end position from the laddersAndSnakes array

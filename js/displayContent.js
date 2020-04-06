@@ -28,11 +28,11 @@ const displayPosAndDice=(player, dice)=>{
          break;
   
          case(playerDisplayState.isLadderorSnake):   
-         renderTextOnHtml3(player); console.log('switch only l or s');
+         renderTextOnHtml3(player); 
          break;
   
          case(playerDisplayState.bousBefore):   
-         renderTextOnHtml4(player);console.log('switch only bonus');
+         renderTextOnHtml4(player);
          break; 
   
          default: renderTextOnHtml5(player);
