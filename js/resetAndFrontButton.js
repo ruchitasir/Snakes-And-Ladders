@@ -19,6 +19,13 @@ const freshStart=()=>{
     removePlayersfromtheBoard(); // remove players from the board  
     document.getElementById('diceface').style.visibility = 'hidden';
     pauseAndLoadAudioForWinner();
+
+      // TEST CODE:to check the winning condition
+    //   drawSmiley(950, 50,P1_COLOR,P1_STROKE_COLOR); 
+    //   drawSmiley(850, 50,P2_COLOR,P2_STROKE_COLOR); 
+
+      players[0].position = 91;
+      players[1].position =92; 
  
 }
 
